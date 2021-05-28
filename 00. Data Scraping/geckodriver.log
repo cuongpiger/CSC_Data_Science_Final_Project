@@ -103,3 +103,99 @@ JavaScript error: https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/asse
 
 ###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
 
+1622191918687	geckodriver	INFO	Listening on 127.0.0.1:35695
+1622191918690	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileAuK6R7"
+1622191919106	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622191920337	Marionette	INFO	Listening on port 40837
+1622191920411	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/assets/webpack-runtime.5853c8143824d1378e22.js, line 1: ChunkLoadError: Loading chunk 1179 failed.
+(error: https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/assets/InformationBlockVN.bfa184842108208843da.js)
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: NotFoundError: No such JSWindowActor 'MarionetteEvents'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: NotFoundError: No such JSWindowActor 'MarionetteCommands'
+JavaScript error: , line 0: TypeError: ServiceWorker script at https://shopee.vn/pc_root_sw.js?ENV=live&LOCALE=VN&SPC_F=UMAX7GuShUVppZ1oGJCL0Kn8N0SIe6aY&SPC_U=- for scope https://shopee.vn/ encountered an error during installation.
+1622191933212	Marionette	INFO	Stopped listening on port 40837
+1622195279402	geckodriver	INFO	Listening on 127.0.0.1:47971
+1622195279408	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileLfHfUt"
+1622195279832	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622195280957	Marionette	INFO	Listening on port 44061
+1622195281024	Marionette	WARN	TLS certificate errors will be ignored for this session
+1622195311206	geckodriver	INFO	Listening on 127.0.0.1:51677
+1622195311208	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilePIeQyN"
+1622195311613	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622195312722	Marionette	INFO	Listening on port 42589
+1622195312847	Marionette	WARN	TLS certificate errors will be ignored for this session
+1622195352890	Marionette	INFO	Stopped listening on port 42589
+JavaScript error: resource://gre/modules/Sqlite.jsm, line 1030: Error: Sqlite.jsm has been shutdown. Cannot open connection to: /tmp/rust_mozprofilePIeQyN/protections.sqlite
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x230032,name=PBrowser::Msg___delete__) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1622195468655	geckodriver	INFO	Listening on 127.0.0.1:33773
+1622195468658	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile4IBRX2"
+1622195469039	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622195470258	Marionette	INFO	Listening on port 43815
+1622195470274	Marionette	WARN	TLS certificate errors will be ignored for this session
+1622195483314	geckodriver	INFO	Listening on 127.0.0.1:46539
+1622195483316	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileBxFVZF"
+1622195483737	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622195484845	Marionette	INFO	Listening on port 39921
+1622195484959	Marionette	WARN	TLS certificate errors will be ignored for this session
+1622195503077	geckodriver	INFO	Listening on 127.0.0.1:33357
+1622195503082	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileWV9xIE"
+1622195503471	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622195504760	Marionette	INFO	Listening on port 35155
+1622195504822	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/Sqlite.jsm, line 1030: Error: Sqlite.jsm has been shutdown. Cannot open connection to: /tmp/rust_mozprofileLfHfUt/protections.sqlite
+1622195527015	Marionette	INFO	Stopped listening on port 44061
+1622195527098	Marionette	INFO	Stopped listening on port 35155
+1622195527107	Marionette	INFO	Stopped listening on port 39921
+1622195527118	Marionette	INFO	Stopped listening on port 43815
+1622195531242	geckodriver	INFO	Listening on 127.0.0.1:53877
+1622195532255	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile4DsvZH"
+1622195532679	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622195533852	Marionette	INFO	Listening on port 40555
+1622195533872	Marionette	WARN	TLS certificate errors will be ignored for this session
+1622195588275	Marionette	INFO	Stopped listening on port 40555
+1622195592447	geckodriver	INFO	Listening on 127.0.0.1:33931
+1622195592450	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileGkoN2Q"
+1622195592839	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622195593977	Marionette	INFO	Listening on port 39901
+1622195594066	Marionette	WARN	TLS certificate errors will be ignored for this session
+1622195653056	geckodriver	INFO	Listening on 127.0.0.1:39357
+1622195653058	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileaGKeuK"
+1622195653469	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622195654613	Marionette	INFO	Listening on port 44479
+1622195654677	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1622195731185	Marionette	INFO	Stopped listening on port 39901
+1622195731188	Marionette	INFO	Stopped listening on port 44479
+1622195745304	geckodriver	INFO	Listening on 127.0.0.1:48787
+1622195746313	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileiu80ta"
+1622195746701	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622195747874	Marionette	INFO	Listening on port 36927
+1622195747929	Marionette	WARN	TLS certificate errors will be ignored for this session
+1622195761881	Marionette	INFO	Stopped listening on port 36927
+1622195798199	geckodriver	INFO	Listening on 127.0.0.1:35817
+1622195798202	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilew6xNzp"
+1622195798595	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622195799731	Marionette	INFO	Listening on port 34903
+1622195799823	Marionette	WARN	TLS certificate errors will be ignored for this session
+1622195813889	Marionette	INFO	Stopped listening on port 34903
