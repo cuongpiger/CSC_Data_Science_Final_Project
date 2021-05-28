@@ -6,7 +6,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
-url = "https://shopee.vn/-Bigsize-38-46-n%C3%A2ng-ng%E1%BB%B1c-ch%E1%BB%91ng-ch%E1%BA%A3y-x%E1%BB%87-%C3%81o-l%C3%B3t-bigsize-%C3%A1o-ng%E1%BB%B1c-bigsize-Th%C3%A1i-Lan-AN343-i.907018.1021926140"
+url = "https://shopee.vn/-M%C3%A3-FAMAYMA2-gi%E1%BA%A3m-10K-%C4%91%C6%A1n-50K-%C3%81o-thun-nam-n%E1%BB%AF-form-r%E1%BB%99ng-Yinxx-%C3%A1o-ph%C3%B4ng-tay-l%E1%BB%A1-ATL43-i.14746382.6519318270"
 
 class Review:
     def __init__(self, pComment, pRating):
