@@ -3,6 +3,7 @@ from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.keys import Keys
     
 
 def goToFooterTag(pDriver):
@@ -53,8 +54,12 @@ class Review:
 
 
 def scroll(pDriver, pWait):
-    while len(pDriver.find_elements_by_css_selector("div.shopee-product-rating")) == 0:
+    body = pDriver.find_element_by_tag_name("body")
+    body.click()
+    
+    while len(pDriver.find_elements_by_css_selector("div.shopee-product-rating")) == 0 and len(pDriver.find_elements_by_tag_name("footer")) == 0:
         pDriver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+        body.send_keys(Keys.SPACE)
         if pDriver.find_element_by_tag_name("footer"):
             return True
 
