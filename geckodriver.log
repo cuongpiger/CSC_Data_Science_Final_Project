@@ -1114,3 +1114,22 @@ console.warn: SearchSettings: "get: No settings file exists, new profile?" (new 
 1622198722462	Marionette	INFO	Listening on port 40981
 1622198722523	Marionette	WARN	TLS certificate errors will be ignored for this session
 1622198746505	Marionette	INFO	Stopped listening on port 40981
+1622251374165	geckodriver	INFO	Listening on 127.0.0.1:60181
+1622251374168	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile6aBnu7"
+1622251374609	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622251375836	Marionette	INFO	Listening on port 40613
+1622251375891	Marionette	WARN	TLS certificate errors will be ignored for this session
+1622251379046	Marionette	INFO	Stopped listening on port 40613
+JavaScript error: https://www.googletagmanager.com/gtm.js?id=GTM-WJZQSJF, line 4029: NS_ERROR_NOT_INITIALIZED: 
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 718: Error: Phase "Sqlite.jsm: wait until all connections are closed" is finished, it is too late to register completion condition "protections.sqlite#0: waiting for shutdown"
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1622251388425	geckodriver	INFO	Listening on 127.0.0.1:44589
+1622251388428	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilefjGYdO"
+1622251388870	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622251390110	Marionette	INFO	Listening on port 34539
+1622251390147	Marionette	WARN	TLS certificate errors will be ignored for this session
+1622251392691	Marionette	INFO	Stopped listening on port 34539
