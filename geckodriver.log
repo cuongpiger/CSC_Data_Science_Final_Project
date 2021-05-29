@@ -1133,3 +1133,117 @@ console.warn: SearchSettings: "get: No settings file exists, new profile?" (new 
 1622251390110	Marionette	INFO	Listening on port 34539
 1622251390147	Marionette	WARN	TLS certificate errors will be ignored for this session
 1622251392691	Marionette	INFO	Stopped listening on port 34539
+1622253202819	geckodriver	INFO	Listening on 127.0.0.1:60031
+1622253202823	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileLyVjCN"
+1622253203251	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622253204467	Marionette	INFO	Listening on port 42903
+1622253204561	Marionette	WARN	TLS certificate errors will be ignored for this session
+[Child 32984, MediaDecoderStateMachine #1] WARNING: Decoder=7f1ebf0cb000 Decode error: NS_ERROR_DOM_MEDIA_DECODE_ERR (0x806e0004) - virtual mozilla::MediaResult mozilla::FFmpegAudioDecoder<58>::DoDecode(mozilla::MediaRawData *, uint8_t *, int, bool *, mozilla::MediaDataDecoder::DecodedData &): FFmpeg audio error:-1094995529: file /build/firefox-g99BAt/firefox-88.0.1+build1/dom/media/MediaDecoderStateMachine.cpp:3478
+[Child 32984, MediaDecoderStateMachine #1] WARNING: Decoder=7f1ebd6f2400 Decode error: NS_ERROR_DOM_MEDIA_DECODE_ERR (0x806e0004) - virtual mozilla::MediaResult mozilla::FFmpegAudioDecoder<58>::DoDecode(mozilla::MediaRawData *, uint8_t *, int, bool *, mozilla::MediaDataDecoder::DecodedData &): FFmpeg audio error:-1094995529: file /build/firefox-g99BAt/firefox-88.0.1+build1/dom/media/MediaDecoderStateMachine.cpp:3478
+1622253238368	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://marionette/content/sync.js:237:19
+TimedPromise@chrome://marionette/content/sync.js:222:10
+interaction.flushEventLoop@chrome://marionette/content/interaction.js:431:10
+webdriverClickElement@chrome://marionette/content/interaction.js:179:31
+1622253246326	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://marionette/content/sync.js:237:19
+TimedPromise@chrome://marionette/content/sync.js:222:10
+interaction.flushEventLoop@chrome://marionette/content/interaction.js:431:10
+webdriverClickElement@chrome://marionette/content/interaction.js:179:31
+1622253247558	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://marionette/content/sync.js:237:19
+TimedPromise@chrome://marionette/content/sync.js:222:10
+interaction.flushEventLoop@chrome://marionette/content/interaction.js:431:10
+webdriverClickElement@chrome://marionette/content/interaction.js:179:31
+1622253388975	geckodriver	INFO	Listening on 127.0.0.1:58141
+1622253388979	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofiles1nJCA"
+1622253389428	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622253390644	Marionette	INFO	Listening on port 41501
+1622253390696	Marionette	WARN	TLS certificate errors will be ignored for this session
+[Child 34587, MediaDecoderStateMachine #1] WARNING: Decoder=7ff8ab4d2c00 Decode error: NS_ERROR_DOM_MEDIA_DECODE_ERR (0x806e0004) - virtual mozilla::MediaResult mozilla::FFmpegAudioDecoder<58>::DoDecode(mozilla::MediaRawData *, uint8_t *, int, bool *, mozilla::MediaDataDecoder::DecodedData &): FFmpeg audio error:-1094995529: file /build/firefox-g99BAt/firefox-88.0.1+build1/dom/media/MediaDecoderStateMachine.cpp:3478
+[Child 34587, MediaDecoderStateMachine #1] WARNING: Decoder=7ff8ab4cac00 Decode error: NS_ERROR_DOM_MEDIA_DECODE_ERR (0x806e0004) - virtual mozilla::MediaResult mozilla::FFmpegAudioDecoder<58>::DoDecode(mozilla::MediaRawData *, uint8_t *, int, bool *, mozilla::MediaDataDecoder::DecodedData &): FFmpeg audio error:-1094995529: file /build/firefox-g99BAt/firefox-88.0.1+build1/dom/media/MediaDecoderStateMachine.cpp:3478
+1622253417214	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://marionette/content/sync.js:237:19
+TimedPromise@chrome://marionette/content/sync.js:222:10
+interaction.flushEventLoop@chrome://marionette/content/interaction.js:431:10
+webdriverClickElement@chrome://marionette/content/interaction.js:179:31
+1622253418010	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://marionette/content/sync.js:237:19
+TimedPromise@chrome://marionette/content/sync.js:222:10
+interaction.flushEventLoop@chrome://marionette/content/interaction.js:431:10
+webdriverClickElement@chrome://marionette/content/interaction.js:179:31
+1622253898683	geckodriver	INFO	Listening on 127.0.0.1:44785
+1622253898686	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilezd1au9"
+1622253899068	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622253900262	Marionette	INFO	Listening on port 42785
+1622253900305	Marionette	WARN	TLS certificate errors will be ignored for this session
+[Child 37691, MediaDecoderStateMachine #1] WARNING: Decoder=7f7068b93400 Decode error: NS_ERROR_DOM_MEDIA_DECODE_ERR (0x806e0004) - virtual mozilla::MediaResult mozilla::FFmpegAudioDecoder<58>::DoDecode(mozilla::MediaRawData *, uint8_t *, int, bool *, mozilla::MediaDataDecoder::DecodedData &): FFmpeg audio error:-1094995529: file /build/firefox-g99BAt/firefox-88.0.1+build1/dom/media/MediaDecoderStateMachine.cpp:3478
+[Child 37691, MediaDecoderStateMachine #1] WARNING: Decoder=7f7067d0a000 Decode error: NS_ERROR_DOM_MEDIA_DECODE_ERR (0x806e0004) - virtual mozilla::MediaResult mozilla::FFmpegAudioDecoder<58>::DoDecode(mozilla::MediaRawData *, uint8_t *, int, bool *, mozilla::MediaDataDecoder::DecodedData &): FFmpeg audio error:-1094995529: file /build/firefox-g99BAt/firefox-88.0.1+build1/dom/media/MediaDecoderStateMachine.cpp:3478
+1622254168640	geckodriver	INFO	Listening on 127.0.0.1:48457
+1622254168643	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileL4jSAN"
+1622254169063	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622254170184	Marionette	INFO	Listening on port 34111
+1622254170262	Marionette	WARN	TLS certificate errors will be ignored for this session
+[Child 39916, MediaDecoderStateMachine #1] WARNING: Decoder=7f073bccf800 Decode error: NS_ERROR_DOM_MEDIA_DECODE_ERR (0x806e0004) - virtual mozilla::MediaResult mozilla::FFmpegAudioDecoder<58>::DoDecode(mozilla::MediaRawData *, uint8_t *, int, bool *, mozilla::MediaDataDecoder::DecodedData &): FFmpeg audio error:-1094995529: file /build/firefox-g99BAt/firefox-88.0.1+build1/dom/media/MediaDecoderStateMachine.cpp:3478
+[Child 39916, MediaDecoderStateMachine #1] WARNING: Decoder=7f073bccf400 Decode error: NS_ERROR_DOM_MEDIA_DECODE_ERR (0x806e0004) - virtual mozilla::MediaResult mozilla::FFmpegAudioDecoder<58>::DoDecode(mozilla::MediaRawData *, uint8_t *, int, bool *, mozilla::MediaDataDecoder::DecodedData &): FFmpeg audio error:-1094995529: file /build/firefox-g99BAt/firefox-88.0.1+build1/dom/media/MediaDecoderStateMachine.cpp:3478
+1622254348852	geckodriver	INFO	Listening on 127.0.0.1:42953
+1622254348855	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileoUe7Yv"
+1622254349283	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622254350475	Marionette	INFO	Listening on port 42525
+1622254350616	Marionette	WARN	TLS certificate errors will be ignored for this session
+1622254373072	Marionette	INFO	Stopped listening on port 42525
+JavaScript error: resource://gre/modules/Sqlite.jsm, line 1030: Error: Sqlite.jsm has been shutdown. Cannot open connection to: /tmp/rust_mozprofileoUe7Yv/protections.sqlite
+1622254689087	geckodriver	INFO	Listening on 127.0.0.1:35479
+1622254689090	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilerDl1iR"
+1622254689572	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622254691232	Marionette	INFO	Listening on port 40717
+1622254691307	Marionette	WARN	TLS certificate errors will be ignored for this session
+1622254717790	Marionette	INFO	Stopped listening on port 40717
+JavaScript error: resource://gre/modules/Sqlite.jsm, line 1030: Error: Sqlite.jsm has been shutdown. Cannot open connection to: /tmp/rust_mozprofilerDl1iR/protections.sqlite
+1622254841368	geckodriver	INFO	Listening on 127.0.0.1:38723
+1622254841372	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileIOEIp0"
+1622254841774	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622254842961	Marionette	INFO	Listening on port 37391
+1622254842989	Marionette	WARN	TLS certificate errors will be ignored for this session
+1622254869905	Marionette	INFO	Stopped listening on port 37391
+1622254897322	geckodriver	INFO	Listening on 127.0.0.1:50985
+1622254897325	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilegUnmPu"
+1622254897760	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622254898957	Marionette	INFO	Listening on port 34963
+1622254899047	Marionette	WARN	TLS certificate errors will be ignored for this session
+1622254997539	geckodriver	INFO	Listening on 127.0.0.1:39121
+1622254997542	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileqCb0yj"
+1622254997944	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622254999149	Marionette	INFO	Listening on port 42941
+1622254999276	Marionette	WARN	TLS certificate errors will be ignored for this session
+1622255055143	geckodriver	INFO	Listening on 127.0.0.1:59773
+1622255055146	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileJkf4Ls"
+1622255055560	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622255056940	Marionette	INFO	Listening on port 46395
+1622255056963	Marionette	WARN	TLS certificate errors will be ignored for this session
+1622255136320	geckodriver	INFO	Listening on 127.0.0.1:57515
+1622255136323	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilel4VWix"
+1622255136742	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622255137978	Marionette	INFO	Listening on port 38207
+1622255138061	Marionette	WARN	TLS certificate errors will be ignored for this session
+1622255161560	Marionette	INFO	Stopped listening on port 38207
+JavaScript error: resource://gre/modules/Sqlite.jsm, line 1030: Error: Sqlite.jsm has been shutdown. Cannot open connection to: /tmp/rust_mozprofilel4VWix/protections.sqlite
+1622255288940	geckodriver	INFO	Listening on 127.0.0.1:41737
+1622255288943	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileGjX1r7"
+1622255289369	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622255290621	Marionette	INFO	Listening on port 35935
+1622255290687	Marionette	WARN	TLS certificate errors will be ignored for this session
+1622255315614	Marionette	INFO	Stopped listening on port 35935
+JavaScript error: resource://gre/modules/Sqlite.jsm, line 1030: Error: Sqlite.jsm has been shutdown. Cannot open connection to: /tmp/rust_mozprofileGjX1r7/protections.sqlite
