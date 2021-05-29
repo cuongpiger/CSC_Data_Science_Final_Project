@@ -53,10 +53,18 @@ class Review:
 
 
 def scroll(pDriver, pWait):
-    while len(pDriver.find_elements_by_css_selector("div.shopee-product-rating")) == 0:
+    last_height = pDriver.execute_script("return document.body.scrollHeight")
+    pDriver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+    new_height = pDriver.execute_script("return document.body.scrollHeight")
+
+    while new_height != last_height:
+        pWait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "div.shopee-product-rating")))
+        last_height = new_height
         pDriver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-        if pDriver.find_element_by_tag_name("footer"):
-            return True
+        new_height = pDriver.execute_script("return document.body.scrollHeight")
+
+    pDriver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+    
 
 
 def getAllRevirewsOfProduct(pUrl):
