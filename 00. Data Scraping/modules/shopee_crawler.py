@@ -35,6 +35,23 @@ def loadProductsURL(pUrlPattern: str, pRange, pProductPattern):
     driver.quit()
     
     return products_url
+
+def loadProductsURL2(pUrlPattern: str, pRange, pProductPattern):
+    driver = webdriver.Firefox()
+    products_url = []
+    
+    for i in range(pRange[0], pRange[1]):
+        url = pUrlPattern.replace("{}", str(i))
+        driver.get(url)
+        goToFooterTag(driver)
+    
+        urls = [a_tag.get_attribute('href') for a_tag in driver.find_elements_by_css_selector(pProductPattern)]# lấy các địa chỉ URL đến sản phẩm
+        products_url += urls
+    
+    driver.close()
+    driver.quit()
+    
+    return products_url
     
 def saveProductsURL(pPath, pListURLs):
     try:
@@ -134,4 +151,83 @@ def getAllRevirewsOfProduct(pUrl):
                     break
                 
                 
+            return customers_reviews
+        
+        
+def getAllRevirewsOfProduct2(pUrl):
+    stop = False
+    driver = webdriver.Firefox()
+    locator_button_focus = (By.CLASS_NAME, "shopee-button-solid--primary")
+    locator_button = (By.CLASS_NAME, "shopee-icon-button--right")
+    buttons_box = {}
+    customers_reviews = []
+    cnt1 = 0
+
+    while True:
+        if cnt1 > 5: break
+        flag = None
+        try:
+            driver.get(pUrl)
+            wait = WebDriverWait(driver, 10)
+
+            scroll(driver, wait)
+            flag = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "div.product-rating-overview__filter")))
+            
+        except TimeoutException as e:
+            cnt1 += 1
+            continue
+        finally:
+            btns = driver.find_elements_by_css_selector("div.product-rating-overview__filter")
+            
+            for i in range(2, 6):
+                btns[i].click()
+                stop = False
+            
+                while True:
+                    if flag is not None:
+                        reviews = driver.find_elements_by_css_selector("div.shopee-product-rating")
+                        
+                        if type(reviews) == list and len(reviews) != 0:                        
+                            for review in reviews:
+                                comment = review.find_element_by_class_name("shopee-product-rating__content").text
+                                rating = len(review.find_elements_by_class_name("icon-rating-solid--active"))
+                                
+                                new_review = Review(comment, rating)
+                                customers_reviews.append(new_review)
+                        else:
+                            stop = True
+                        
+                        flag1 = None
+                        try:
+                            flag1 = wait.until(EC.element_to_be_clickable(locator_button))
+                            
+                            if flag1 is not None:
+                                flag1.click()
+                        except TimeoutException as e:
+                            stop = True
+                        
+                        try:
+                            flag2 = wait.until(EC.presence_of_element_located(locator_button_focus))
+                            
+                            if flag2 is not None:
+                                key = flag2.text.strip()
+                                buttons_box[key] = buttons_box.get(key, 0) + 1
+                                
+                                if buttons_box.get(key) > 1:
+                                    stop = True
+                                
+                        except TimeoutException as e:
+                            stop = True
+                            
+                    try:
+                        flag = wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "div.shopee-product-rating")))
+                    except TimeoutException as e:
+                        stop = True
+                        
+                    if stop: 
+                        break
+                    
+                
+            driver.close()
+            driver.quit() 
             return customers_reviews
