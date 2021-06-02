@@ -47564,3 +47564,4 @@ JavaScript error: resource://gre/modules/Sqlite.jsm, line 1030: Error: Sqlite.js
 console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
 1622557970939	Marionette	INFO	Listening on port 35477
 1622557971035	Marionette	WARN	TLS certificate errors will be ignored for this session
+1622558716357	Marionette	INFO	Stopped listening on port 35477
