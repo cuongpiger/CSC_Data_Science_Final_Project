@@ -8,7 +8,7 @@ detect_url = r"(?i)\b((?:https?://|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[
 remove_special_characters = r"[^a-z àáâãèéêìíòóôõùúăđĩũơưăạảấầẩẫậắằẳẵặẹẻẽềềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹý]"
 
 def extract_emoji(pText):
-    return list(emojis.get(pText))
+    return " ".join(list(emojis.get(pText)))
 
 def get_text(pText: str):
     test = pText.lower()
@@ -64,5 +64,4 @@ def fixAcronymWords(pDictionary, pText):
     return " ".join(words)
 
 def combineCommentAnnEmoji(pText, pEmoji):
-    emoji_text = " ".join(pEmoji)
-    return pText + " " + emoji_text
+    return pText + " " + pEmoji
