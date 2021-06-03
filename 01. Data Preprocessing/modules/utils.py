@@ -63,5 +63,8 @@ def fixAcronymWords(pDictionary, pText):
             
     return " ".join(words)
 
-def combineCommentAnnEmoji(pText, pEmoji):
-    return pText + " " + pEmoji
+def combineCommentAndEmoji(pText, pEmoji):
+    if pEmoji == "nan":
+        pEmoji = ""
+        
+    return (pText + " " + pEmoji).strip()
