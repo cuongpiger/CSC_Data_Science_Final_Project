@@ -1,0 +1,1 @@
+vncorenlp -Xmx500m VnCoreNLP-1.1.1.jar -p 9000 -a "wseg"
