@@ -132,3 +132,20 @@ console.warn: SearchSettings: "get: No settings file exists, new profile?" (new 
 1622649343823	Marionette	WARN	TLS certificate errors will be ignored for this session
 1622649345743	Marionette	INFO	Stopped listening on port 44107
 JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 718: Error: Phase "Sqlite.jsm: wait until all connections are closed" is finished, it is too late to register completion condition "protections.sqlite#0: waiting for shutdown"
+1622684015552	geckodriver	INFO	Listening on 127.0.0.1:39809
+1622684016552	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileeD4xw0"
+1622684017647	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622684019781	Marionette	INFO	Listening on port 42651
+1622684019884	Marionette	WARN	TLS certificate errors will be ignored for this session
+1622684023318	Marionette	INFO	Stopped listening on port 42651
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 718: Error: Phase "Sqlite.jsm: wait until all connections are closed" is finished, it is too late to register completion condition "protections.sqlite#0: waiting for shutdown"
+1622684025852	geckodriver	INFO	Listening on 127.0.0.1:60607
+1622684026862	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileHW3jA4"
+1622684027525	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622684029387	Marionette	INFO	Listening on port 41409
+1622684029494	Marionette	WARN	TLS certificate errors will be ignored for this session
+1622684031645	Marionette	INFO	Stopped listening on port 41409
+JavaScript error: , line 0: uncaught exception: undefined
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 718: Error: Phase "Sqlite.jsm: wait until all connections are closed" is finished, it is too late to register completion condition "protections.sqlite#0: waiting for shutdown"
