@@ -47,6 +47,7 @@ def loadVietnameseAbbreviate():
 
 
 def standardVietnameseAbbreviate(pVietnameseAbbreviate, pText):
+    pText = f" {pText} "
     for abbreviate, word in pVietnameseAbbreviate.items():
         pText = re.sub(f"{vietnamese_letters_pattern_no_space}+{abbreviate}{vietnamese_letters_pattern_no_space}+", f" {word} ", pText)
 
@@ -80,6 +81,7 @@ def loadBoostWords():
 
 def extractBoostWords(pBoostWords, pText):
     lst_words = []
+    pText = f" {pText} "
 
     for word in pBoostWords.keys():
         if re.search(",", word):
@@ -118,11 +120,6 @@ def getFiles(pDirectory):
     return [f for f in listdir(pDirectory) if isfile(join(pDirectory, f))]
 
 
-
-
-
-
-
 def fixAcronymWords(pDictionary, pText):
     words = []
     
@@ -135,3 +132,13 @@ def fixAcronymWords(pDictionary, pText):
             words.append(acronym)
             
     return " ".join(words)
+
+
+def estimateLabel(pSentiment, pText):
+    sentiment = pSentiment(pText)
+    
+    if sentiment == 'negative': return -1
+    
+    if sentiment == 'positive': return 1
+    
+    return 0
