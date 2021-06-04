@@ -164,6 +164,20 @@ def removeStopword(pStopword, pText):
 
     return " ".join(sentence)
 
+def removeBoostWord(pProcessingComment, pBoost):
+    pProcessingComment = f" {pProcessingComment} "
+    words = pBoost.split(" ")
+    
+    for word in words:
+        word = re.sub("_", " ", word)
+        pProcessingComment = re.sub(f"{vietnamese_letters_pattern_no_space}+{word}{vietnamese_letters_pattern_no_space}+", " ", pProcessingComment)
+        
+    return pProcessingComment.strip()
+
+
+def genStandardComment(pTokenize, pBoost, pEmoji):
+    return f"{pTokenize} {pBoost} {pEmoji}".strip()
+
 
 import wordcloud
 import matplotlib.pyplot as plt
@@ -174,3 +188,4 @@ def drawWordCloud(pText: str):
                                 width=2000,height=1000,mode="RGB").generate(pText)
     plt.axis("off")
     plt.imshow(word_cloud)
+    

@@ -47,8 +47,10 @@ cũng ổn
 cũng được
 shipper
 ship
+sale,mua sale
+giá tốt
 sida
-okla
+ok
 xu cà na
 ối trời ơi
 cái nịt
@@ -98,3 +100,8 @@ không bao giờ
 quay lại
 giới thiệu
 xịn xò
+cực ưng
+zip,túi zip
+good job
+amazing
+thun đẹp

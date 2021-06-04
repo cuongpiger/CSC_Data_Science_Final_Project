@@ -38,3 +38,6 @@ vãi=vải
 dỏm=dởm
 góm=gớm
 đág=đáng
+oke=ok
+okla=ok
+sd=sử dụng
