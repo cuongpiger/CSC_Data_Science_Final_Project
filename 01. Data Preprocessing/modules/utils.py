@@ -142,3 +142,35 @@ def estimateLabel(pSentiment, pText):
     if sentiment == 'positive': return 1
     
     return 0
+
+
+def loadStopwords():
+    stopwords = {}
+    
+    with open("./modules/dependencies/stopwords.txt", "r", encoding="utf-8") as reader:
+        words = reader.read().split("\n")
+        for word in words:
+            stopwords[word] = True
+            
+    return stopwords
+
+def removeStopword(pStopword, pText):
+    words = pText.split(" ")
+    sentence = []
+    
+    for word in words:
+        if pStopword.get(word) is None:
+            sentence.append(word)
+
+    return " ".join(sentence)
+
+
+import wordcloud
+import matplotlib.pyplot as plt
+
+def drawWordCloud(pText: str):
+    plt.figure(figsize=(20,10))
+    word_cloud = wordcloud.WordCloud(max_words=100,background_color ="black",
+                                width=2000,height=1000,mode="RGB").generate(pText)
+    plt.axis("off")
+    plt.imshow(word_cloud)
