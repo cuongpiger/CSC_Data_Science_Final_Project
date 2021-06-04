@@ -1,11 +1,12 @@
 giao hàng,giao hàng nhanh,giao nhanh,giao hàng chậm,giao chậm
 giá tiền
 không giống,không giống hình,không như hình
+không vừa
+không chắc chắn
 giá rẻ
 giá tiền
 giá đắt
 giá mắc
-hàng đẹp
 hàng ổn
 nên mua
 ủng hộ
@@ -25,18 +26,22 @@ mọi người
 như hình
 giống hình
 hơi mỏng
+đáng mua
 vải mỏng
 chỉ thừa
 tiền nào của nấy
 tạm được
 tạm ổn
 không đẹp
+không ưng
+không thích
 nhận hàng
 không nên
 đánh giá
 nên mua
 ship hàng
 đường may
+đường chỉ
 không được
 sản phẩm
 không giao
@@ -46,11 +51,11 @@ tạm chấp nhận
 cũng ổn
 cũng được
 shipper
-ship
+ship lâu
+ship chậm
 sale,mua sale
 giá tốt
 sida
-ok
 xu cà na
 ối trời ơi
 cái nịt
@@ -66,7 +71,6 @@ bung chỉ
 trời ơi
 thấy chán
 phát chán
-ok, okla
 giao đủ
 giá rẻ
 vừa vặn
@@ -105,4 +109,26 @@ zip,túi zip
 good job
 amazing
 thun đẹp
+rất đẹp
+cũng đẹp
+áo đẹp
+quần đẹp
 ưng ý
+cute
+đặt hàng
+giao thiếu,giao đúng
+giao màu,giao màu sai
+giao hàng sai
+rách
+khác kiểu
+khác size
+sai size
+sai màu
+nhầm size
+nhầm màu
+nhầm kiểu
+dơ
+bẩn
+khác màu
+sống nhăn
+sai màu
