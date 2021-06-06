@@ -1,0 +1,1 @@
+{"model_name": "LogisticRegression", "best_params": {"C": 10.0, "penalty": "l2"}, "accuracy_train_test": [0.9880069293297206, 0.8805187883094963]}
