@@ -16,7 +16,7 @@ cẩn thận
 đóng gói
 lâu,hơi lâu,rất lâu,quá lâu
 trễ,quá trễ,hơi trễ
-chất lượng,kém chất lượng
+chất lượng,kém chất lượng,chất lượng tốt
 nhận hàng
 rất đáng
 mua nha
@@ -28,6 +28,7 @@ giống hình
 hơi mỏng
 đáng mua
 vải mỏng
+vải xấu
 chỉ thừa
 tiền nào của nấy
 tạm được
@@ -43,11 +44,10 @@ ship hàng
 đường may
 đường chỉ
 không được
-sản phẩm
+sản phẩm,sản phẩm lỗi,sản phẩm tốt
 không giao
 không đúng
 bình thường
-tạm chấp nhận
 cũng ổn
 cũng được
 shipper
@@ -132,3 +132,12 @@ bẩn
 khác màu
 sống nhăn
 sai màu
+chưa đúng
+cũng được
+cũng tạm
+cũng ổn
+cũng đẹp
+khá tốt
+khá đẹp
+khá ổn
+cực thích
