@@ -76,4 +76,14 @@ def expandPhrase(pText: str, pPhrases: dict):
             
     return " ".join(text)
         
-        
+def removeStopword(pText: str, pVietnameseWord: dict):
+    pText = re.sub(vietnamese_letters_pattern, " ", pText.lower())
+    pText = re.sub(" +", " ", pText)
+    words = pText.split(" ")
+    res = []
+    
+    for word in words:
+        if (pVietnameseWord.get(word, 0) == 0):
+            res.append(word)
+            
+    return " ".join(res)
