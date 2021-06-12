@@ -188,4 +188,3 @@ def drawWordCloud(pText: str):
                                 width=2000,height=1000,mode="RGB").generate(pText)
     plt.axis("off")
     plt.imshow(word_cloud)
-    

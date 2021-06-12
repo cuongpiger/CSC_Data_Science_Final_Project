@@ -1,6 +1,21 @@
-giao hàng,giao hàng nhanh,giao nhanh,giao hàng chậm,giao chậm
-giá tiền
-không giống,không giống hình,không như hình
+giao hàng nhanh,giao nhanh,giao hàng chậm,giao chậm,giao lâu,giao hàng lâu,giao hàng hơi lâu
+giao hơi lâu
+giao sai màu,giao sai hàng
+màu bạc,màu hơi bạc
+trầy xước
+bị chật
+khá to
+hàng đẹp
+không có gì
+mất đẹp
+thấy xấu
+xấu hẳn
+bị méo
+bị nhăn
+cơ bản
+chật
+thì đẹp
+không giống,không giống hình,không như,không như hình
 không vừa
 không chắc chắn
 giá rẻ
@@ -16,16 +31,25 @@ cẩn thận
 đóng gói
 lâu,hơi lâu,rất lâu,quá lâu
 trễ,quá trễ,hơi trễ
-chất lượng,kém chất lượng,chất lượng tốt
+kém chất lượng,chất lượng tốt,chất lượng kém,chất lượng sản phẩm tốt,chất lượng sản phẩm kém
 nhận hàng
 rất đáng
 mua nha
+vải mỏng
+vải nóng
+khó chịu
+mặc vừa
+nhạt
 xinh lắm
 xinh xắn
 mọi người
 như hình
 giống hình
 hơi mỏng
+hơi nhỏ
+tạch
+gãy
+ghét
 đáng mua
 vải mỏng
 vải xấu
@@ -33,7 +57,7 @@ chỉ thừa
 tiền nào của nấy
 tạm được
 tạm ổn
-không đẹp
+không đẹp,không được đẹp
 không ưng
 không thích
 nhận hàng
@@ -44,9 +68,13 @@ ship hàng
 đường may
 đường chỉ
 không được
-sản phẩm,sản phẩm lỗi,sản phẩm tốt
 không giao
 không đúng
+không phải
+tàm tạm
+khá vừa
+tiền nào của đó
+sản phẩm lỗi,sản phẩm tốt,sản phẩm đẹp,sản phẩm kém
 bình thường
 cũng ổn
 cũng được
@@ -65,7 +93,7 @@ như cứt
 như bùi
 bỏ mẹ
 như lồn
-đẹp lắm luôn
+đẹp lắm,đẹp lắm luôn
 đổ lông
 bung chỉ
 trời ơi
@@ -87,7 +115,12 @@ ngu dốt
 vải nóng
 tạm chấp nhận
 hợp túi tiền
-hàng đẹp
+bao đẹp
+rất đẹp
+đẹp cực
+cực đẹp
+quá đẹp
+đẹp quá
 mặc nóng
 xinh xỉu
 hàng dởm
@@ -99,6 +132,7 @@ phát gớm
 thấy gớm
 kinh dị
 vải xấu
+vải đẹp
 chất xấu
 không bao giờ
 quay lại
@@ -119,7 +153,10 @@ cute
 giao thiếu,giao đúng
 giao màu,giao màu sai
 giao hàng sai
+màu không giống
+mồ hôi
 rách
+sờn
 khác kiểu
 khác size
 sai size
@@ -128,6 +165,7 @@ nhầm size
 nhầm màu
 nhầm kiểu
 dơ
+phù hợp
 bẩn
 khác màu
 sống nhăn
@@ -135,9 +173,17 @@ sai màu
 chưa đúng
 cũng được
 cũng tạm
+cũng tốt
 cũng ổn
 cũng đẹp
 khá tốt
 khá đẹp
 khá ổn
 cực thích
+hơi khác
+bị lỗi
+khá mắc
+lộ
+mỏng quá
+cũng ok
+hơi rộng
