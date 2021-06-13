@@ -6,13 +6,13 @@ from typing import Dict, List
 
 url_pattern = r"(?i)\b((?:https?://|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'\".,<>?«»“”‘’]))"
 
-vietnamese_upper_pattern = r"[^A-ZÁÀẢÃẠÂẤẦẨẪẬĂẮẰẲẴẶÉÈẺẼẸÊẾỀỂỄỆÍÌỈĨỊÓÒỎÕỌÔỐỒỔỖỘƠỚỜỞỠỢÚÙỦŨỤƯỨỪỬỮỰÝỲỶỸỴĐ]"
+upper_pattern = r"[^A-ZÁÀẢÃẠÂẤẦẨẪẬĂẮẰẲẴẶÉÈẺẼẸÊẾỀỂỄỆÍÌỈĨỊÓÒỎÕỌÔỐỒỔỖỘƠỚỜỞỠỢÚÙỦŨỤƯỨỪỬỮỰÝỲỶỸỴĐ]"
 
-vietnamese_letters_pattern = r"[^a-z áàảãạâấầẩẫậăắằẳẵặéèẻẽẹêếềểễệíìỉĩịóòỏõọôốồổỗộơớờởỡợúùủũụưứừửữựýỳỷỹỵđ]"
+letters_pattern = r"[^a-z áàảãạâấầẩẫậăắằẳẵặéèẻẽẹêếềểễệíìỉĩịóòỏõọôốồổỗộơớờởỡợúùủũụưứừửữựýỳỷỹỵđ]"
 
-vietnamese_letters_pattern_no_space = r"[^a-záàảãạâấầẩẫậăắằẳẵặéèẻẽẹêếềểễệíìỉĩịóòỏõọôốồổỗộơớờởỡợúùủũụưứừửữựýỳỷỹỵđ]"
+letters_pattern_no_space = r"[^a-záàảãạâấầẩẫậăắằẳẵặéèẻẽẹêếềểễệíìỉĩịóòỏõọôốồổỗộơớờởỡợúùủũụưứừửữựýỳỷỹỵđ]"
 
-vietnamese_letters = r"[a-záàảãạâấầẩẫậăắằẳẵặéèẻẽẹêếềểễệíìỉĩịóòỏõọôốồổỗộơớờởỡợúùủũụưứừửữựýỳỷỹỵđ]"
+letters = r"[a-záàảãạâấầẩẫậăắằẳẵặéèẻẽẹêếềểễệíìỉĩịóòỏõọôốồổỗộơớờởỡợúùủũụưứừửữựýỳỷỹỵđ]"
 
 def drawWordCloud(pText: str):
     plt.figure(figsize=(20,10))
@@ -27,14 +27,14 @@ def containsURL(pText: str):
     return flag is not None
 
 def containAdvertisement(pText: str):
-    tmp = re.sub(vietnamese_upper_pattern, "", pText)
+    tmp = re.sub(upper_pattern, "", pText)
     
     return len(tmp) / len(pText) >= 0.5
 
 def loadVietnameseSyllables():
     vietnamese_syllables = {}
     
-    with open("./modules/dependencies/vietnamese-syllables.txt", "r", encoding="utf-8") as reader:
+    with open("./modules/dependencies/syllables.txt", "r", encoding="utf-8") as reader:
         words = reader.read().split("\n")
         for word in words:
             vietnamese_syllables[word] = 1
@@ -42,8 +42,8 @@ def loadVietnameseSyllables():
     return vietnamese_syllables
 
 def isVietnamese(pText: str, pVietnameseWord: dict):
-    pText = re.sub(vietnamese_letters_pattern, " ", pText.lower())
-    pText = re.sub(" +", " ", pText)
+    pText = re.sub(letters_pattern, " ", pText.lower())
+    pText = re.sub(r'(.)\1+', r'\1', pText)
     words = pText.split(' ')
     vietnamese = 0
     other_langs = 0
@@ -61,12 +61,12 @@ def convertToOneString(pText: List[str]):
 
 
 def expandPhrase(pText: str, pPhrases: dict):
-    pText = re.sub(vietnamese_letters_pattern, " ", pText.lower())
-    pText = re.sub(" +", " ", pText)
+    pText = re.sub(letters_pattern, " ", pText.lower())
+    pText = re.sub(r'(.)\1+', r'\1', pText)
     text = []
     
     for phrase in pPhrases:
-        matches = re.findall(f"{vietnamese_letters}+ {phrase} {vietnamese_letters}+", pText)
+        matches = re.findall(f"{letters}* {phrase} {letters}*", pText)
         
         if matches:
             matches = ["_".join(match.split(" ")) for match in matches]
@@ -76,14 +76,60 @@ def expandPhrase(pText: str, pPhrases: dict):
             
     return " ".join(text)
         
-def removeStopword(pText: str, pVietnameseWord: dict):
-    pText = re.sub(vietnamese_letters_pattern, " ", pText.lower())
-    pText = re.sub(" +", " ", pText)
+def removeSyllables(pText: str, pVietnameseWord: dict):
+    pText = re.sub(letters_pattern, " ", pText.lower())
+    pText = re.sub(r'(.)\1+', r'\1', pText)
     words = pText.split(" ")
-    res = []
+    res = set()
+    cnt = 0
     
     for word in words:
+        flag = 0
         if (pVietnameseWord.get(word, 0) == 0):
-            res.append(word)
+            res.add(word)
+            
+    print(cnt)
             
     return " ".join(res)
+
+def loadAbbreviate():
+    abbreviate = {}
+    
+    with open("./modules/dependencies/abbreviate.txt", "r", encoding="utf-8") as reader:
+        words = reader.read().split("\n")
+        for word in words:
+            tmp = word.split("=")
+            abbreviate[tmp[0]] = tmp[1]
+            
+    return abbreviate
+
+def removeAbbreviates(pText: str, pAbbreviate: dict):
+    pText = re.sub(letters_pattern, " ", pText.lower())
+    pText = re.sub(r'(.)\1+', r'\1', pText)
+    words = pText.split(" ")
+    res = set()
+    
+    for word in words:
+        if (pAbbreviate.get(word, "") == ""):
+            res.add(word)
+            
+    return " ".join(res)
+
+def standardAbbreviate():
+    pass
+
+def createCommentColumn(pText: str, pSyllables: dict, pAbbreviates: dict):
+    pText = re.sub(letters_pattern, " ", pText.lower())
+    pText = re.sub(r'(.)\1+', r'\1', pText.strip())
+    pText = f" {pText} "
+    text = []
+    
+    for key, value in pAbbreviates.items():
+        pText = re.sub(f"{letters_pattern_no_space}+{key}{letters_pattern_no_space}+", value, pText)
+
+    words = pText.strip().split(" ")   
+    for word in words:
+        if pSyllables.get(word, 0) == 1:
+            text.append(word)
+            
+    return " ".join(text)
