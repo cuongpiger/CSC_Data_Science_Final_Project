@@ -57,6 +57,7 @@ def isVietnamese(pText: str, pVietnameseWord: dict):
     return vietnamese >= other_langs  
 
 def convertToOneString(pText: List[str]):
+    pText = [str(text) for text in pText]
     return " ".join(pText).lower()
 
 
@@ -125,11 +126,24 @@ def createCommentColumn(pText: str, pSyllables: dict, pAbbreviates: dict):
     text = []
     
     for key, value in pAbbreviates.items():
-        pText = re.sub(f"{letters_pattern_no_space}+{key}{letters_pattern_no_space}+", value, pText)
-
-    words = pText.strip().split(" ")   
+        pText = re.sub(f"{letters_pattern_no_space}+{key}{letters_pattern_no_space}+", f" {value} ", pText)
+        
+    words = re.sub(r'(.)\1+', r'\1', pText.strip()).split(" ")   
     for word in words:
         if pSyllables.get(word, 0) == 1:
             text.append(word)
             
     return " ".join(text)
+
+def regexFilter(pText: str, pKeyword: str):
+    pText = f" {pText} "
+    return re.search(f"{letters_pattern_no_space}+{pKeyword}{letters_pattern_no_space}+", pText) is not None
+
+
+def regexSearch(pText: str, pKeyword: List[str]):
+    pText = str(pText).strip()
+    for keyword in pKeyword:
+        if re.search(keyword, pText) is not None:
+            return True
+    
+    return False

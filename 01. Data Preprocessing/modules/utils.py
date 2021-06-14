@@ -1,190 +1,159 @@
-from __future__ import unicode_literals
-import emojis
+import wordcloud
+import matplotlib.pyplot as plt
 import re
+import emojis
 import numpy as np
-from .regex_patterns import vietnamese_letters_pattern, vietnamese_letters_pattern_no_space, url_pattern
-from os import listdir
-from os.path import isfile, join
+
+from typing import Dict, List
+
+url_pattern = r"(?i)\b((?:https?://|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'\".,<>?«»“”‘’]))"
+
+upper_pattern = r"[^A-ZÁÀẢÃẠÂẤẦẨẪẬĂẮẰẲẴẶÉÈẺẼẸÊẾỀỂỄỆÍÌỈĨỊÓÒỎÕỌÔỐỒỔỖỘƠỚỜỞỠỢÚÙỦŨỤƯỨỪỬỮỰÝỲỶỸỴĐ]"
+
+letters_pattern = r"[^a-z áàảãạâấầẩẫậăắằẳẵặéèẻẽẹêếềểễệíìỉĩịóòỏõọôốồổỗộơớờởỡợúùủũụưứừửữựýỳỷỹỵđ]"
+
+letters_pattern_no_space = r"[^a-záàảãạâấầẩẫậăắằẳẵặéèẻẽẹêếềểễệíìỉĩịóòỏõọôốồổỗộơớờởỡợúùủũụưứừửữựýỳỷỹỵđ]"
+
+letters = r"[a-záàảãạâấầẩẫậăắằẳẵặéèẻẽẹêếềểễệíìỉĩịóòỏõọôốồổỗộơớờởỡợúùủũụưứừửữựýỳỷỹỵđ]"
 
 
-def labelRating(pRating: int):
-    if pRating <= 2: return -1
-    
-    if pRating <= 4: return 0
-    
-    return 1
-
-
-def extractEmoji(pText: str):
-    return " ".join(list(emojis.get(pText)))
-
+def drawWordCloud(pText: str):
+    plt.figure(figsize=(20,10))
+    word_cloud = wordcloud.WordCloud(max_words=100,background_color ="white",
+                                width=2000,height=1000,mode="RGB").generate(pText)
+    plt.axis("off")
+    plt.imshow(word_cloud)
     
 def containsURL(pText: str):
     flag = re.search(url_pattern, pText)
     
     return flag is not None
 
-
-def removeDuplicateLetters(pText: str):
-    words = pText.split(" ")
+def containAdvertisement(pText: str):
+    tmp = re.sub(upper_pattern, "", pText)
     
-    for i, word in enumerate(words):
-        words[i] = re.sub(r'(.)\1+', r'\1', word)
-        
-    return " ".join(words)
+    return len(tmp) / len(pText) >= 0.5
 
-
-def loadVietnameseAbbreviate():
-    vietnamese_abbreviate = {}
+def loadSyllables():
+    syllables = {}
     
-    with open("./modules/dependencies/vietnamese-abbreviate.txt", "r", encoding="utf-8") as reader:
-        items = reader.read().split("\n")
-        for item in items:
-            abbreviate, word = item.split("=")
-            vietnamese_abbreviate[abbreviate] = word
+    with open("./modules/dependencies/syllables.txt", "r", encoding="utf-8") as reader:
+        words = reader.read().split("\n")
+        for word in words:
+            syllables[word] = 1
             
-    return vietnamese_abbreviate
+    return syllables
+
+def isVietnamese(pText: str, pSyllables: dict):
+    pText = re.sub(letters_pattern, " ", pText.lower())
+    pText = re.sub(r'(.)\1+', r'\1', pText)
+    words = pText.split(' ')
+    vietnamese = 0
+    other_langs = 0
+    
+    for word in words:
+        if (pSyllables.get(word, 0) == 1):
+            vietnamese += 1
+        else:
+            other_langs += 1
+
+    return vietnamese >= other_langs  
+
+def extractEmoji(pText: str):
+    return " ".join(list(emojis.get(pText)))
 
 
-def standardVietnameseAbbreviate(pVietnameseAbbreviate, pText):
-    pText = f" {pText} "
-    for abbreviate, word in pVietnameseAbbreviate.items():
-        pText = re.sub(f"{vietnamese_letters_pattern_no_space}+{abbreviate}{vietnamese_letters_pattern_no_space}+", f" {word} ", pText)
-
+def createPreprocessColumn(pText: str):
+    pText = re.sub(letters_pattern, " ", pText.lower())
+    pText = re.sub(r'(.)\1+', r'\1', pText)
+    
     return pText.strip()
 
 
-def removeNotVietnameseLetters(pText: str):
-    return re.sub("\s+", " ", re.sub(vietnamese_letters_pattern, " ", pText)).strip() 
-
-
-def loadVietnameseSyllables():
-    vietnamese_syllables = {}
+def loadAbbreviates():
+    from modules.dependencies.abbreviate import abbreviate
+    abbreviates = {}
     
-    with open("./modules/dependencies/vietnamese-syllables.txt", "r", encoding="utf-8") as reader:
-        words = reader.read().split("\n")
-        for word in words:
-            vietnamese_syllables[word] = True
+    for word in abbreviate:
+        tmp = word.split("=")
+        abbreviates[tmp[0]] = tmp[1]
             
-    return vietnamese_syllables
+    return abbreviates
+
+def standardReview(pText: str, pAbbreviates: dict, pSyllables: dict):
+    pText = f" {str(pText).strip()} "
+    text = []
+    
+    for key, value in pAbbreviates.items():
+        pText = re.sub(f"{letters_pattern_no_space}+{key}{letters_pattern_no_space}+", f" {value} ", pText)
+        
+    words = re.sub(r'(.)\1+', r'\1', pText.strip()).split(" ")   
+    for word in words:
+        if pSyllables.get(word, 0) == 1:
+            text.append(word)
+            
+    return " ".join(text)
 
 def loadBoostWords():
-    boost_words = {}
-    
-    with open("./modules/dependencies/boost-words.txt", "r", encoding="utf-8") as reader:
-        words = reader.read().split("\n")
-        for word in words:
-            boost_words[word] = True
-            
-    return boost_words
+    from modules.dependencies.boost_words import boost_words
+    return dict(zip(boost_words, np.ones(len(boost_words), dtype=int)))
 
-
-def extractBoostWords(pBoostWords, pText):
+def extractBoostWords(pText: str, pBoostWords: dict):
     lst_words = []
-    pText = f" {pText} "
+    pText = f" {str(pText).strip()} "
 
     for word in pBoostWords.keys():
-        if re.search(",", word):
-            words = word.split(',')
-            dash_word = None
+        if re.search(f"{letters_pattern_no_space}+{word}{letters_pattern_no_space}+", pText):
+            lst_words.append("_".join(word.split(" ")))
             
-            for split_word in words:
-                if re.search(f"{vietnamese_letters_pattern_no_space}+{split_word}{vietnamese_letters_pattern_no_space}+", pText):
-                    dash_word = "_".join(split_word.split(" "))
-                    
-            if dash_word:
-                lst_words.append(dash_word)
-        elif re.search(f"{vietnamese_letters_pattern_no_space}+{word}{vietnamese_letters_pattern_no_space}+", pText):
-            dash_word = "_".join(word.split(" "))
-            lst_words.append(dash_word)
+    lst_words = sorted(lst_words, key=len)
+    rm = []
+    for i in range(len(lst_words)):
+        for j in range(i + 1, len(lst_words)):
+            if lst_words[i] in lst_words[j]:
+                rm.append(i)
+                break
             
-    return " ".join(lst_words).strip()
-
-def removeGibbish(pDictionary, pText):
-    words = []
+    whole = set(np.arange(len(lst_words), dtype=int))
+    remaining = whole - set(rm)
     
-    for word in pText.split(" "):
-        if pDictionary.get(word) is not None:
-            words.append(word)
             
-    return " ".join(words)
-
-def combineCommentAndEmoji(pText, pEmoji):
-    if pEmoji == "nan" or pEmoji == "" or pEmoji == np.nan or pEmoji == None:
-        pEmoji = ""
-        
-    return (pText + " " + pEmoji).strip()
-
-
-def getFiles(pDirectory):
-    return [f for f in listdir(pDirectory) if isfile(join(pDirectory, f))]
-
-
-def fixAcronymWords(pDictionary, pText):
-    words = []
-    
-    for word in pText.split(" "):
-        acronym = pDictionary.get(word)
-        
-        if acronym is None:
-            words.append(word)
-        else:
-            words.append(acronym)
-            
-    return " ".join(words)
-
-
-def estimateLabel(pSentiment, pText):
-    sentiment = pSentiment(pText)
-    
-    if sentiment == 'negative': return -1
-    
-    if sentiment == 'positive': return 1
-    
-    return 0
-
+    return " ".join(np.array(lst_words)[list(remaining)]).strip()
 
 def loadStopwords():
-    stopwords = {}
-    
-    with open("./modules/dependencies/stopwords.txt", "r", encoding="utf-8") as reader:
-        words = reader.read().split("\n")
-        for word in words:
-            stopwords[word] = True
+    from modules.dependencies.stopwords import stopwords
+    return dict(zip(stopwords, np.ones(len(stopwords), dtype=int)))
+
+def combine(pText: str, pBoostwords: str, pEmoji: str, pStopwords: dict):
+    pText = f" {str(pText)} "
+    pBoostwords = str(pBoostwords).split(" ")
+    text = []
+
+    for boost in pBoostwords:
+        bw = re.sub("_", " ", boost)
+        pText = re.sub(f"{letters_pattern_no_space}+{bw}{letters_pattern_no_space}+", f" {boost} ", pText)
+
+    for word in re.sub(r'(.)\1+', r'\1', pText.strip()).split(" "):
+        if pStopwords.get(word, 0) == 0:
+            text.append(word)
             
-    return stopwords
+    text = " ".join(text)
+            
+    return f"{text} {pEmoji}".strip()
 
-def removeStopword(pStopword, pText):
-    words = pText.split(" ")
-    sentence = []
+def removeBoostwords(pText: str, pBoostwords: str, pStopwords: dict):
+    pText = f" {pText} "
+    pBoostwords = str(pBoostwords).split(" ")
     
-    for word in words:
-        if pStopword.get(word) is None:
-            sentence.append(word)
-
-    return " ".join(sentence)
-
-def removeBoostWord(pProcessingComment, pBoost):
-    pProcessingComment = f" {pProcessingComment} "
-    words = pBoost.split(" ")
-    
-    for word in words:
-        word = re.sub("_", " ", word)
-        pProcessingComment = re.sub(f"{vietnamese_letters_pattern_no_space}+{word}{vietnamese_letters_pattern_no_space}+", " ", pProcessingComment)
+    for boost in pBoostwords:
+        bw = re.sub("_", " ", boost)
+        pText = re.sub(f"{letters_pattern_no_space}+{bw}{letters_pattern_no_space}+", " ", pText)
         
-    return pProcessingComment.strip()
+    for word in re.sub(r'(.)\1+', r'\1', pText.strip()).split(" "):
+        if pStopwords.get(word, 0) == 0:
+            pText = re.sub(f"{letters_pattern_no_space}+{word}{letters_pattern_no_space}+", " ", pText)
+        
+    return re.sub(r'(.)\1+', r'\1', pText.strip())
 
-
-def genStandardComment(pTokenize, pBoost, pEmoji):
-    return f"{pTokenize} {pBoost} {pEmoji}".strip()
-
-
-import wordcloud
-import matplotlib.pyplot as plt
-
-def drawWordCloud(pText: str):
-    plt.figure(figsize=(20,10))
-    word_cloud = wordcloud.WordCloud(max_words=100,background_color ="black",
-                                width=2000,height=1000,mode="RGB").generate(pText)
-    plt.axis("off")
-    plt.imshow(word_cloud)
+def combine2(pBoostwords: str, pTokenize: str, pEmoji):
+    return f"{str(pBoostwords).strip()} {str(pTokenize).strip()} {str(pEmoji).strip()}".strip()

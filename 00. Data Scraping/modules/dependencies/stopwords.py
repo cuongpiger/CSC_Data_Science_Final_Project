@@ -1,5 +1,7 @@
 stopwords = set([
-    "sẽ", "shop", "với", "nhưng", "áo", "thì", "mà", "mình", "quần", "hàng"
+    "sẽ", "shop", "với", "nhưng", "áo", "thì", "mà", "mình", "quần", "hàng",
+    
+    
 ])
 
 boost_words = set(["chắc chắn", "cảm ơn", "ủng hộ", "hơi mỏng", "hài lòng", "tuyệt vời", "thoải mái", "đẹp lắm", "ưng ý", "rất ok", "giao hàng nhanh chóng", "giao hàng nhanh", "nên mua", "đẹp chất lượng tốt", "đóng gói cẩn thận", "phù hợp với giá", "giao hàng rất nhanh", "tiếp tục ủng hộ", "ủng hộ shop", "tư vấn nhiệt tình", "tư vấn rất nhiệt tình", "đẹp giá rẻ", "chất lượng tốt", "đáng giá tiền"])

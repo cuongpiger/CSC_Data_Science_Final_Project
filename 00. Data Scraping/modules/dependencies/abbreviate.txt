@@ -47,3 +47,5 @@ bt=bình thường
 tôt=tốt
 time=thời gian
 lamw=lắm
+gảy=gãy
+dởm=dỏm
