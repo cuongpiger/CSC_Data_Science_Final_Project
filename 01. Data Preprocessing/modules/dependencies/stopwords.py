@@ -96,5 +96,9 @@ stopwords = set([
     'ạ',
     'ở',
     "đóng",
-    "gói"
+    "gói",
+    "shop",
+    "nhưng",
+    "mà",
+    "shop"
 ])

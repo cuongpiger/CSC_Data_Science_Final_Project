@@ -157,3 +157,24 @@ def removeBoostwords(pText: str, pBoostwords: str, pStopwords: dict):
 
 def combine2(pBoostwords: str, pTokenize: str, pEmoji):
     return f"{str(pBoostwords).strip()} {str(pTokenize).strip()} {str(pEmoji).strip()}".strip()
+
+def findBoostWords(pText: str, pWord: str, pBoostWords: dict):
+    pText = re.sub(letters_pattern, " ", pText.lower())
+    pText = re.sub(r'(.)\1+', r'\1', pText)
+    pText = f" {pText.strip()} "
+    
+    rmboostwords = {}
+    for key in pBoostWords.keys():
+        if re.search(pWord, key) is not None:
+            rmboostwords[key] = 1
+            
+    if re.search(pWord, pText) is not None:
+        for key in rmboostwords.keys():
+            pText = re.sub(f"{letters_pattern_no_space}+{key}{letters_pattern_no_space}+", f" ", pText)
+            pText = re.sub(r'(.)\1+', r'\1', pText)
+            
+        if re.search(pWord, pText) is not None:
+            return 1
+        
+    return 0
+            
